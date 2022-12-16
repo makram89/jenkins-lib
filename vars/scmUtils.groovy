@@ -9,24 +9,24 @@ def gitCheckout(Map stageParams) {
 
 def setGitUserInfo(Map stageParams)
 {
-    sh "git config user.name $stageParams.username"
-    sh "git config user.email $stageParams.email"
+    sh "git config user.name ${stageParams.username}"
+    sh "git config user.email ${stageParams.email}"
    
 }
 
-def setGitUserInfo(Map stageParams)
+def gitCommit(Map stageParams)
 {
   commitInfo([
         Message: [[msg:  stageParams.Message ]],
         GitAdd : [[ addString: stageParams.GitAdd  ]]
         
     ])  
-    // TODO commit
+
 }
 
 def gitPush()
 {
-
+    sh "git push"
 }
 
 
